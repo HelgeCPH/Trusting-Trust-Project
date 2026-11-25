@@ -1,8 +1,8 @@
 This repository is a fork from [`tremps/Infosec-Coding-Project`](https://github.com/tremps/Infosec-Coding-Project).
-This fork is a modification of the original repository, so that it can be used as an in-class exercise.
+It is a modification of the original repository, so that it can be used as an in-class exercise.
 
 
-# Trusting Trust Project
+# Trusting Trust Exercise
 
 This project introduces a bug into the [TinyCC](https://github.com/TinyCC/tinycc) compiler.
 The bug is introduced by a variation of Ken Thompson's "Trusting Trust" attack.
@@ -28,9 +28,9 @@ Before running the steps below, it is expected that you have:
 5. Lastly, it is assumed that you cloned this repository and changed your working directory to the root of it.
 
 
-## Testing our project
+## Experimenting with a Test Program
 
-1. You have met the requirements above.
+1. Make sure that you have met the requirements above.
 2. Compile `test.c` with the TinyCC compiler that you have setup on your host (see section above).
 
   ```bash
@@ -45,6 +45,8 @@ Before running the steps below, it is expected that you have:
 
 4. Note, that the program fails, unless `password123` is provided as argument.
 
+
+## Experimenting with a Trusting Trust Attack
 
 The previous steps illustrate that the example program works as intended when compiled with a trusted compiler.
 Now, let's experiment with a trusting trust attack.
