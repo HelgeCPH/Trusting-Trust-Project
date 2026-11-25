@@ -123,41 +123,12 @@ Thereafter, we will introduce a bug into this compiler, rebuild
   - Now, verify that the program still `test.out` succeeds no matter which password is provided as argument, even though neither its sources nor the compiler sources contain respective instructions.
 
 
-<!-- TODO: Continue here! -->
-
-```bash
-$ sha256sum ~/tcc_*/bin/tcc
-b56a9c59cb821eb9f0131d3de23f9ea862d9f76787ffb31c5c1ca0560c713efb  /home/user/tcc_0.9.27/bin/tcc
-0f77e205500a41bfc176036a62d3adbddc39380f203d0ede281295df297e2412  /home/user/tcc_0.9.27_bugged/bin/tcc
-```
-
-
-
-
-
-7. Now, replace libtcc.c with its original, unmodified source code provided in the base directory of the project
-
-
-
-8. Within the tinycc directory, make and install tcc as many time as you would like
-```
-make clean
-./configure
-make
-make test
-make install
-```
-9. You can now repeat step 2, you should notice that every string entered is accepted
-
-
-
 
 ### Note
 
-The `configure` and `Makefile` within the tinycc directory we provide are modified to compile with tcc.
-This is vital for the code to work as intended.
-The first time compiling our code with the bugged version, you create a bugged version of the `tcc` binary that will target compilation of `test.c` files and that
-will target libtcc.c to reintroduce itself into all preceding versions of the compiler.
-This bugged version is only designed to compile the original tcc source code.
-Do not try compiling the bugged version of libtcc.c with a bugged version of the compiler. Step 8 can
-be repeated as many times as you want because the bugged version is continuously reintroducing itself.
+The `configure` script and `Makefile` within the tinycc directory are modified to compile with the `tcc` binary by default.
+This is required for the code to work as intended.
+The first time compiling our code with the bugged version, you create a bugged version of the `tcc` binary that will target compilation of `test.c` files and that will target `libtcc.c` to reintroduce itself into all preceding versions of the compiler.
+This bugged version is only designed to compile the original `tcc` source code.
+Do not try compiling the bugged version of `libtcc.c` with a bugged version of the compiler.
+Step 5 can be repeated as many times as you want because the bugged version is continuously reintroducing itself.
